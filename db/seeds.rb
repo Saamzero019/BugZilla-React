@@ -12,7 +12,8 @@
     Bug.create(
         title: "Bug #{i+1}", 
         priority: 0,
-        completetion_days: 10;
+        completetion_days: 10,
         description: "bug was created by Seed with ref #{i+1}"
 
     )
+end 
