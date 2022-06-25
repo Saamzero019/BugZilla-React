@@ -1,5 +1,5 @@
 class Api::V1::CommentsController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  
 
   def create
     @comment = Comment.new(comment_params)

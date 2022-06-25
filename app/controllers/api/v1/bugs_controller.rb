@@ -1,7 +1,7 @@
 class Api::V1::BugsController < ApplicationController
 
   before_action :givenBug, only: [:destroy, :show]
-  skip_before_action :verify_authenticity_token
+  
 
   def index
     @bugs = Bug.all.order(created_at: :desc) # order by magic column (date creation by desc) 
