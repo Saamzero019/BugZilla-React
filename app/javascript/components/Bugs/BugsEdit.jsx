@@ -105,6 +105,7 @@ export default function BugsEdit(props) {
                   onChange={handleChange}
                 />
               </div>
+              
               <button type="submit" className="btn btn-success mt-3">
                 Update Bug
               </button>

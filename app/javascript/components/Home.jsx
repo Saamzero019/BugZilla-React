@@ -2,49 +2,41 @@ Home
 
 import React from "react";
 import {Link} from "react-router-dom"
-import Navbar from "./Shared/Navbar";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Navbar from './Shared/Navbar'
+
+import Login from "./Login";
+
+import { useNavigate } from "react-router-dom";
+export default function Home(props) {
+    const [loginStatus, setloginStatus] = useState(props.loggedInStatus)
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+    console.log("props in effect: ", props)
+  },[])
 
 
-
-
-
-export default function Home() {
-    const [loginStatus, setloginStatus] = useState(false)
-
-useEffect(() => {
-    axios
-      .get("")
-      .then((response) => {
-         console.log("response Data: ", response.data )
-        setloginStatus(response.data);
-      })
-      .catch((error) => console.log(error));
-  }, []); // second parameter defines condition of re-render (re-render from this value)
-
+  const handleSuccessfulAuth = (data) =>
+  {
+    props.handleLogin(data);
+    setloginStatus(data.logged_in)
+    navigate("/bugs/new");
+  }
 
 return (
     <>
-    <Navbar isLogin = {loginStatus} />
-    <div className="vw-100 vh-100 primary-color d-flex align-items-center justify-content-center">
-        <div className="jumbotron jumbotron-fluid bg-transparent">
-        <div className="container secondary-color">
-            <h1 className="display-4">BugZilla</h1>
-            <p className="lead">
-            Bugs are needed to be rectified 
-            </p>
-            <hr className="my-4" />
-            <Link
-            to= "/bugs"
-            className="btn btn-lg custom-button"
-            role="button"
-            >
-            View Bugs F
-            </Link>
-        </div>
-        </div>
-    </div>
+     <Navbar  handleLogout = {props.handleLogout}  />
+        <div>
+        <h1>Home</h1>
+        <h1>Status: {loginStatus}</h1>
+        <Login handleSuccessfulAuth={handleSuccessfulAuth}
+        />
+        <p>
+          Don't have an account? <Link to="/register">Register</Link>
+        </p>
+      </div>
     </>
 );
 

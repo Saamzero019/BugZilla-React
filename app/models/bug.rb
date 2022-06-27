@@ -9,5 +9,5 @@ class Bug < ApplicationRecord
     validates :description, presence: true 
 
     # ineteger to named values 
-    enum priority: ["Low", "Medium", "High"]
+     enum priority: [:low, :medium, :high]
 end

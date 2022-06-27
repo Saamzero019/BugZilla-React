@@ -9,7 +9,8 @@ class Api::V1::BugsController < ApplicationController
   end
 
   def create 
-     @bugs = Bug.create(bug_params)  
+    byebug
+     @bugs = Bug.create!(bug_params)  
     if @bugs
       render json: @bugs
     else 
@@ -42,8 +43,9 @@ class Api::V1::BugsController < ApplicationController
     end
   end
 
+
   def update  
-      if @bugs = Bug.update(bug_params)
+      if @bugs = Bug.update!(bug_params)
         render json: @bugs # {head:ok} # {message: "Bug was updated!"}
       else 
         render json:@Bugs.errors

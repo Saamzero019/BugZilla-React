@@ -1,58 +1,57 @@
 import React from "react";
-import axios from "axios";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
+const Navbar = (props) => {
+  const navigate = useNavigate();
+  return (
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <a className="navbar-brand"  onClick={() => navigate('bugs')}>
+        Navbar
+      </a>
+      <button
+        className="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span className="navbar-toggler-icon"></span>
+      </button>
 
-export default function Navbar(props) {
-
-    const navigate = useNavigate()
-
-    const {loginStatis} = props.isLogin
-
-
-
-    const loginElement = (
-      <li className="list-item" onClick={() => navigate('bugs')}>
-      <p>All Bugs</p>
-    </li>
-    )
-  
-    const  simpleElement = (
-      
-      <li className="list-item" onClick={() => navigate('login')}>
-      <p>Log In</p>
-    </li>
-    );
-  
-      return (
-        <nav className="navigation">
-          <p onClick={()=> navigate('/')} className="brand-name">
-            BugZilla
-          </p>
-          <button className="brandLogo">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              viewBox="0 0 20 20"
-              fill="white"
+      <div className="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul className="navbar-nav">
+          <li className="nav-item active">
+            <a className="nav-link" href="#">
+              Home <span className="sr-only">(current)</span>
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" onClick={() => navigate('login')}>
+              Login
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" onClick={props.handleLogout}>
+              Log Out
+            </a>
+          </li>
+          <li className="nav-item dropdown">
+            <a
+              className="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdownMenuLink"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
             >
-              <path
-                fillRule="evenodd"
-                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </button>
-          <div
-            className="navigation-menu">
-            <ul>
-            <div className="row">
-              {loginStatis == true ? loginElement : simpleElement}
-            </div>
-  
-                
-            </ul>
-          </div>
-        </nav>
-      );
-    }
-  
+              Dropdown link
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;

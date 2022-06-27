@@ -7,6 +7,47 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+User.create!(
+    email: "admin@gmail.com",
+    password: "123456",
+    password_confirmation: "123456",
+    confirmed_at: Time.zone.now)
+10.times do |n|
+#name = Faker::Name.name
+email = "example-#{n + 1}@gmail.org"
+password = "password"
+User.create!(#name: name,
+      #role: "manager",
+      email: email,
+      password: password,
+      password_confirmation: password,
+      confirmed_at: Time.zone.now)
+end
+
+10.times do |n|
+#name = Faker::Name.name
+email = "example-#{n + 1}@outlook.org"
+password = "password"
+User.create!(#name: name,
+     # role: "qa",
+      email: email,
+      password: password,
+      password_confirmation: password,
+      confirmed_at: Time.zone.now)
+end
+
+10.times do |n|
+#name = Faker::Name.name
+email = "example-#{n + 1}@yahoo.org"
+password = "password"
+User.create!(#name: name,
+    #  role: "developer",
+      email: email,
+      password: password,
+      password_confirmation: password,
+      confirmed_at: Time.zone.now)
+end
+
 
 10.times do |i|
     Bug.create(

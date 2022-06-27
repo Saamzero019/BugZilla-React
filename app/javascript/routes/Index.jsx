@@ -15,7 +15,8 @@ export default (
         <Routes>
             <Route path="/" element={<Home />} exact />
             <Route path="/login" element={<Login />} exact/>
-            <Route path="/register" element={<Register />} />
+            {/* <Route path="/logout" element={<Logout />} exact/> */}
+            <Route path="/register" element={<Register  />} />
             <Route path="/bugs" element={<BugsIndex />} />
             <Route path="/bugs/:id" element={<BugsShow />} />
             <Route path="/bugs/new" element={<BugsNew />} />

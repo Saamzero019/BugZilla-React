@@ -62,7 +62,7 @@ export default function BugsShow(props) {
       <div className="py-5">
         <main className="container">
           <div className="text-right mb-3">
-            <Link to="/api/v1/bugs/new" className="btn btn-success">
+            <Link to="/bugs/new" className="btn btn-success">
               Create New Bug
             </Link>
           </div>
